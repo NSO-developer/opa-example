@@ -1,0 +1,27 @@
+vpn {
+l3vpn volvo {
+    as-number 65101;
+    endpoint branch-office1 {
+        ce-device    ce1;
+        ce-interface GigabitEthernet0/11;
+        ip-network   10.7.7.0/24;
+        bandwidth    6000000;
+    }
+    endpoint branch-office2 {
+        ce-device    ce4;
+        ce-interface GigabitEthernet0/18;
+        ip-network   10.8.8.0/24;
+        bandwidth    300000;
+    }
+    endpoint main-office {
+        ce-device    ce0;
+        ce-interface GigabitEthernet0/11;
+        ip-network   10.10.1.0/24;
+        bandwidth    12000000;
+    }
+    qos {
+        qos-policy GOLD;
+    }
+}
+
+}

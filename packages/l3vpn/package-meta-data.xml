@@ -1,0 +1,20 @@
+<ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
+  <name>l3vpn</name>
+  <package-version>2.0</package-version>
+  <description>Example service implemented in Python</description>
+  <ncs-min-version>3.0</ncs-min-version>
+
+  <python-package>
+    <vm-name>mpls-vpn</vm-name>
+  </python-package>
+
+  <!-- It's possible to add more components to the -->
+  <!-- same package, multiple services, data providers etc -->
+
+  <component>
+    <name>service</name>
+    <application>
+      <python-class-name>Service</python-class-name>
+    </application>
+  </component>
+</ncs-package>

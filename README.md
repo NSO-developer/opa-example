@@ -14,15 +14,15 @@ This has been tested with ncs 4.6.1 and OPA 0.8.2.
 This gets a static binary
 
 ```bash
-curl -L -o opa https://github.com/open-policy-agent/opa/releases/download/v0.8.2/opa_darwin_amd64
-chmod a+x opa
+    curl -L -o opa https://github.com/open-policy-agent/opa/releases/download/v0.8.2/opa_darwin_amd64
+    chmod a+x opa
 ```
 
 2. Setup NSO and build the packages
 
 ```bash
-ncs-setup --dest .
-make
+    ncs-setup --dest .
+    make
 ```
 
 
@@ -30,12 +30,12 @@ make
 
 1. Run OPA in a terminal
 ```bash
-./opa run --server --log-level=debug
+    ./opa run --server --log-level=debug
 ```
 
 2. Start NSO
 ```bash
-make start
+    make start
 ```
 
 3. Show the transfer of topology information into opa. Since opa was started after NSO it has to be triggered manually. Run `request packages reload` in the NSO cli. You can then verify that the topology we uploaded into opa looks right:

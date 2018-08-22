@@ -1,0 +1,14 @@
+README.html
+README.ncs
+logs
+ncs-cdb/
+ncs.conf
+netsim/*
+opa
+packages/cisco-ios
+packages/cisco-iosxr
+packages/juniper-junos
+packages/l3vpn/load-dir/
+packages/l3vpn/python/_namespaces
+state/
+storedstate

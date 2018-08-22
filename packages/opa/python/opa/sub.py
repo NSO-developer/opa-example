@@ -97,11 +97,11 @@ class Subscriber(object):
         # The implementation is simple and always sends the entire topology, a more efficient implementation
         # would send only the updates.
         try:
-            cr = read_config(self.ms, self.th, "/topology")            
+            cr = read_config(self.ms, self.th, "topology")
             j = json.loads(cr)
             j = j['data']['l3vpn:topology']
             self.debug("Sending to OPA: " + json.dumps(j))
-            r= opa.send_to_opa('topoology', j)
+            r = opa.send_to_opa('topology', j)
             self.debug("Result from OPA : {} {}".format(r,r.text))
         except Exception,e:
             self.debug("Error: {} {}".format(e, sys.exc_info()[0]))

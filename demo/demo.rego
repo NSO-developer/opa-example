@@ -8,10 +8,9 @@ import data.topology as topology
 
 default allow = false
 
-# curl -v -X POST "http://localhost:8181/v1/data/service/l3vpn?pretty=true" -d '{"input":{"method":"GET", "path":["finance","salary","alice"], "user":"alice"}}'
 
 # Find the one matching the customer in the service
-cust_topology = [ topology.allowedas[t] | topology.allowedas[t]["customer"] = "volvo"]
+cust_topology = [ topology.allowedas[t] | topology.allowedas[t]["customer"] = service["name"]]
 
 allowed_as = cust_topology[_]["as"]
 
@@ -19,4 +18,7 @@ allow {
     allowed_as[_] = to_number(service["as-number"])
 }
 
-# curl -v -X POST "http://localhost:8181/v1/data/service/l3vpn?pretty=true" -d '{"input":{"name":"volvo", "as":"65009"}}'
+# Simple command to test the rule:
+# curl -v -X POST "http://localhost:8181/v1/data/service/l3vpn?pretty=true" -d '{"input":{"name":"volvo", "as-number":"65009"}}'
+# Command to upload the rule:
+# curl -v -X PUT --data-binary @demo/demo.rego localhost:8181/v1/policies/test
